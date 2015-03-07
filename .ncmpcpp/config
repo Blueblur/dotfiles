@@ -1,0 +1,37 @@
+mpd_music_dir = "/home/blueblur112198/Music/"  
+mpd_connection_timeout = "5"  
+mpd_crossfade_time = "5"  
+playlist_disable_highlight_delay = "0"  
+playlist_display_mode = "columns"  
+browser_display_mode = "columns"  
+incremental_seeking = "yes"  
+autocenter_mode = "yes"  
+header_visibility = "yes"  
+statusbar_visibility = "yes"  
+follow_now_playing_lyrics = "yes"  
+ignore_leading_the = "yes"  
+song_columns_list_format = "(10)[blue]{l} (30)[green]{a} (30)[magenta]{b} (50)[yellow]{t}"  
+colors_enabled = "yes"
+
+# Colors
+main_window_color = "red"  
+header_window_color = "red"  
+volume_color = "red"  
+progressbar_color = "red"  
+progressbar_elapsed_color = "red"
+statusbar_color = "red"  
+color1 = "red"  
+color2 = "red"  
+active_column_color = "red"  
+active_window_border = "red"  
+visualizer_color = "red"
+state_line_color = "red"
+
+# Visualizer
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
+visualizer_look="◆▋"
