@@ -1,0 +1,225 @@
+# ==================================== #
+# ======| Blueblur's i3 config |====== #
+# ==================================== #
+
+set $super Mod4
+set $alt Mod1
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font pango:Terminus 10
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+# start a terminal
+bindsym $super+$alt+t exec urxvt
+
+# start thunar
+bindsym $super+$alt+f exec pcmanfm
+
+# start firefox
+bindsym $super+$alt+g exec firefox
+
+# kill focused window
+bindsym $super+$alt+q kill
+
+# lock the screen
+bindsym $super+l exec xscreensaver-command --lock
+
+# start dmenu (a program launcher)
+bindsym $super+$alt+d exec dmenu_run -nb \#2d2d2d -nf \#dcdcdc -sb \#d64937 -sf \#2d2d2d -l 10 -w 400 -fn "-xos4-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $super+d exec --no-startup-id i3-dmenu-desktop
+
+# take screenshots
+bindsym Print exec scrot
+bindsym $super+Print exec scrot -u
+bindsym $super+$alt+Print exec scrot -s
+
+# change volume
+bindsym XF86AudioRaiseVolume exec ponymix increase 2
+bindsym XF86AudioLowerVolume exec ponymix decrease 2
+bindsym XF86AudioMute exec ponymix toggle
+
+# change brightness
+bindsym XF86MonBrightnessUp exec xbacklight +10
+bindsym XF86MonBrightnessDown exec xbacklight -10
+
+# change gaps
+bindsym $super+$alt+p gaps outer current plus 5
+bindsym $super+$alt+o gaps outer current minus 5
+bindsym $super+p gaps inner current plus 5
+bindsym $super+o gaps inner current minus 5
+
+# change focus
+#bindsym $super+j focus left
+#bindsym $super+k focus down
+#bindsym $super+l focus up
+#bindsym $super+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+#bindsym $super+$alt+j move left
+#bindsym $super+$alt+k move down
+#bindsym $super+$alt+l move up
+#bindsym $super+$alt+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $super+$alt+Left move left
+bindsym $super+$alt+Down move down
+bindsym $super+$alt+Up move up
+bindsym $super+$alt+Right move right
+
+# split in horizontal orientation
+bindsym $super+h split v
+
+# split in vertical orientation
+bindsym $super+v split h
+
+# enter fullscreen mode for the focused container
+bindsym $super+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $super+s layout stacking
+bindsym $super+w layout tabbed
+bindsym $super+e layout toggle split
+
+# toggle tiling / floating
+bindsym $super+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $super+$alt+space focus mode_toggle
+
+# focus the parent container
+bindsym $super+a focus parent
+
+# focus the child container
+#bindsym $super+d focus child
+
+# switch to workspace
+bindsym $super+1 workspace 1
+bindsym $super+2 workspace 2
+bindsym $super+3 workspace 3
+bindsym $super+4 workspace 4
+bindsym $super+5 workspace 5
+bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
+bindsym $super+0 workspace 10
+
+# move focused container to workspace
+bindsym $super+$alt+1 move container to workspace 1
+bindsym $super+$alt+2 move container to workspace 2
+bindsym $super+$alt+3 move container to workspace 3
+bindsym $super+$alt+4 move container to workspace 4
+bindsym $super+$alt+5 move container to workspace 5
+bindsym $super+$alt+6 move container to workspace 6
+bindsym $super+$alt+7 move container to workspace 7
+bindsym $super+$alt+8 move container to workspace 8
+bindsym $super+$alt+9 move container to workspace 9
+bindsym $super+$alt+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $super+$alt+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+$alt+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $super+$alt+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $super+$alt+e exec "lxsession-logout"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 2 px or 2 ppt
+        bindsym Down resize grow height 2 px or 2 ppt
+        bindsym Up resize shrink height 2 px or 2 ppt
+        bindsym Right resize grow width 2 px or 2 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $super+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command bash $HOME/.i3/statusline
+        position top
+		tray_output LVDS1
+		height 18
+		font pango:Icons 10, Terminus 10
+        colors{
+                background #2d2d2d
+                separator #dcdcdc
+
+                focused_workspace  #d64937 #d64937 #2d2d2d
+                active_workspace   #2d2d2d #2d2d2d #dcdcdc
+                inactive_workspace #2d2d2d #2d2d2d #dcdcdc
+                urgent_workspace   #2d2d2d #2d2d2d #dcdcdc
+        }
+}
+
+# no borders
+new_window pixel 2 
+new_float pixel 2
+
+# docky floats
+for_window [class="Docky"] floating enable
+
+# autostart applications
+exec xrandr --output LVDS1 --left-of VGA1
+exec compton -CGcz
+#exec nm-applet
+#exec pa-applet
+#exec xfce4-clipman
+#exec dropboxd
+#exec /opt/thefanclub/grive-tools/grive-indicator
+exec xscreensaver -nosplash
+exec feh --bg-center ~/.i3/backgrounds/blankNumix.png
+exec hhpc -i 3
+
+# Colors
+# class                 border  backgr. text    indicator
+client.focused          #d64937	#d64937 #2D2D2D #2e9ef4
+client.focused_inactive #2d2d2d #2d2d2d #dcdcdc #484e50
+client.unfocused        #2D2D2D #2d2d2d #dcdcdc #292d2e
+client.urgent           #2D2D2D #2D2D2D #dcdcdc #900000
+
+# workspace screens
+workspace 1 output eDP1
+workspace 2 output eDP1
+workspace 3 output eDP1
+workspace 4 output eDP1
+workspace 5 output eDP1
+workspace 6 output eDP1
+workspace 7 output eDP1
+workspace 8 output eDP1 
+workspace 9 output eDP1
+workspace 10 output DP1
