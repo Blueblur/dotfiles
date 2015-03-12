@@ -172,9 +172,9 @@ bindsym $super+r mode "resize"
 bar {
         status_command bash $HOME/.i3/statusline
         position top
-		tray_output LVDS1
-		height 18
-		font pango:Icons 10, Terminus 10
+	tray_output LVDS1
+	height 18
+	font pango:Icons 10, Terminus 10
         colors{
                 background #2d2d2d
                 separator #dcdcdc
